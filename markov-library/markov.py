@@ -20,7 +20,7 @@ class Markov:
 
     
     # Main Function ( Calculate removal effect for an input dataset)
-    def get_markov_count(data_set, column_1, column_2 ):
+    def get_markov_count(data_set, column_1, column_2):
         """
         Description:
         Args: column_1 (numeric) : Column to caluculate removal effect , column_2 (string) : Path to conversion  

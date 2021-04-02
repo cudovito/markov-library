@@ -7,17 +7,17 @@ with open('HISTORY.md') as history_file:
     HISTORY = history_file.read()
 
 setup_args = dict(
-    name='',
+    name='markov-library',
     version='0.1.2',
     # Short description
-    description='',
+    description='This library contains the code of markov chains',
     long_description_content_type="text/markdown",
     long_description=README + '\n\n' + HISTORY,
     # MIT
     license='',
     packages=find_packages(),
-    author='',
-    author_email='',
+    author='Saurabh Waradkar, Rishabh Bhardwaj',
+    author_email='waradkarsaurabh@gmail.com, rishabhb932@gmail.com',
     # Search keywords to find library
     keywords=[],
     # Git hub repo url
