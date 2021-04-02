@@ -7,7 +7,8 @@ from itertools import chain
 from calculate_rank.Rank import calculate_rank
 from unique.Unique import get_unique_list
 
-
+# Assert messages
+from assert_messages.transaction_matrix.index import transition_matrix_assert
 
 class TransactionMatrix:
 
@@ -21,6 +22,10 @@ class TransactionMatrix:
         response: unique_list(List)
         """
 
+        # Args validation
+        assert isinstance(path, str), transition_matrix_assert.get('PATH_TYPE_CHECK')
+        assert len(path) > 0, transition_matrix_assert.get('PATH_TYPE_CHECK')
+
         unique_list = path.split('>')
         
         return unique_list
@@ -32,6 +37,10 @@ class TransactionMatrix:
         Args: dataset(DataFrame)
         Response: dataframe
         """
+
+        # Args validation
+        assert isinstance(dataset, pd.DataFrame), transition_matrix_assert.get('DATASET_TYPE_CHECK')
+
         # Variable declarations 
         path = []
         conversions_array = []

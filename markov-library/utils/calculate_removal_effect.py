@@ -1,18 +1,25 @@
 import pandas as pd
 import numpy as np
 
+# Assert messages
+from assert_messages.calculate_removal_effect.index import calculate_removal_effect_assert
 
 class RemovalEffect:
 
     def __init__(self):
-        pass
+        pass 
 
-    def removal_effects(df, conversion_rate):
-        """
+    def removal_effects(self, df, conversion_rate = 1):
+        """(
         Description: To calculate removal effect on based on the datafram passed
         Args: df(Dataframe) , conversion_rate(int)
         Response: removal_effects_dict(dataframe)
         """
+
+        # Args validation
+        assert isinstance(df, pd.DataFrame), calculate_removal_effect_assert.get('DF_TYPE_CHECK')
+        assert isinstance(conversion_rate, int), calculate_removal_effect_assert.get('CONVERSION_RATE_TYPE_CHECK')
+        assert (0 < conversion_rate and conversion_rate < 1), calculate_removal_effect_assert.get('CONVERSION_RATE_NULL_CHECK')
 
         # Calculating len of dataframe
         num_rows = len(df['start'])
