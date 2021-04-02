@@ -11,6 +11,8 @@ from utils.simulation import simulation
 from utils.unique.Unique import unique
 from utils.transaction_matrix.TransactionMatrix import trans_mat
 
+# Assert messages
+from utils.assert_messages.markov.index import markov_assert
 
 class Markov:
 
@@ -20,13 +22,21 @@ class Markov:
 
     
     # Main Function ( Calculate removal effect for an input dataset)
-    def get_markov_count(data_set, column_1, column_2 ):
+    def get_markov_count(self, data_set, column_1, column_2):
         """
         Description:
         Args: column_1 (numeric) : Column to caluculate removal effect , column_2 (string) : Path to conversion  
         Response: Dataframe
 
         """
+
+        # Args validation
+        assert isinstance(data_set, pd.DataFrame), markov_assert.get('DATA_SET_TYPE_CHECK')
+        assert isinstance(column_1, str), markov_assert.get('COLUMN_1_TYPE_CHECK')
+        assert isinstance(column_2, str), markov_assert.get('COLUMN_2_TYPE_CHECK')
+        assert len(column_1) > 0, markov_assert.get('COLUMN_1_NULL_CHECK')
+        assert len(column_2) > 0, markov_assert.get('COLUMN_2_NULL_CHECK')
+
         # Taking copy of the dataset
         data_set_copy = data_set.copy()
         
