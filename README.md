@@ -1,3 +1,6 @@
+# Demo and Usage guidelines
+    https://cudovito.github.io/markov-chains/
+    
 # Product Name
 
 > Markov library is implementation of markov-chains algorithm.
